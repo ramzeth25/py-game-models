@@ -21,10 +21,11 @@ def main() -> None:
                 bonus=skill.get("bonus"),
                 race=race)
 
-        guild, _ = Guild.objects.get_or_create(
-            name=player_value.get("guild").get("name"),
-            description=player_value.get("guild").get("description")
-        )
+        if player_value.get("guild"):
+            guild, _ = Guild.objects.get_or_create(
+                name=player_value.get("guild").get("name"),
+                description=player_value.get("guild").get("description")
+            )
 
         players, _ = Player.objects.get_or_create(
             nickname=player_key,
