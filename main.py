@@ -9,7 +9,7 @@ def main() -> None:
         players = json.load(file)
 
     for player_key, player_value in players.items():
-        guild = None
+        guild_obj = None
         race_obj, _ = Race.objects.get_or_create(
             name=player_value.get("race").get("name"),
             description=player_value.get("race").get("description", "")
